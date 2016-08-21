@@ -12,7 +12,14 @@ malloc, free option */
 
 #define N 4
  
- 
+/* The __global__ indicates that this is an entry-point function running on the device. is called from host code  */
+ __global__ void Matrixadd(int A[][N], int B[][N], int C[][N]){
+           int g = threadIdx.x;
+           int h = threadIdx.y;
+
+           C[g][h] = A[g][h] + B[g][h];
+}
+
 int main()
 {
    int i, j =0;
