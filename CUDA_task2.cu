@@ -62,21 +62,28 @@ int main()
   cudaMemcpy(d_B, B, (N*N)*sizeof(int), cudaMemcpyHostToDevice);
   cudaMemcpy(d_C, C, (N*N)*sizeof(int), cudaMemcpyHostToDevice);
 
+//Launch add() kernel on GPU
+  int numBlocks = 1;
+  dim3 threadsPerBlock(N,N);
+  Matrixadd<<<numBlocks,threadsPerBlock>>>(d_A,d_B,d_C);
 
-     for(i=0;i<N;i++){
-        for(j=0;j<N;j++){
-            C[i][j] = A[i][j] + B[i][j];
-        }
-    }
- 
-   printf("Sum of entered matrices:-\n");
- 
-    for(i=0;i<N;i++){
-        for(j=0;j<N;j++){
-            printf("%d ", C[i][j]);
+  // Copy result back to the host
+  cudaMemcpy(C, d_C, (N*N)*sizeof(int), cudaMemcpyDeviceToHost);
+
+  int g, h; printf("C = \n");
+    for(g=0;g<N;g++){
+        for(h=0;h<N;h++){
+            printf("%d ", C[g][h]);
         }
         printf("\n");
     }
+
+// This is cleanup 
+  cudaFree(d_A); 
+  cudaFree(d_B); 
+  cudaFree(d_C);
+
+  printf("\n");
  
    return 0;
 }
