@@ -57,7 +57,10 @@ int main()
   cudaMalloc((void**)&d_B, (N*N)*sizeof(int));
   cudaMalloc((void**)&d_C, (N*N)*sizeof(int));
 
-
+/* Copy input to device. the memory areas may not overlap calling cuda Memcpy()*/
+  cudaMemcpy(d_A, A, (N*N)*sizeof(int), cudaMemcpyHostToDevice);
+  cudaMemcpy(d_B, B, (N*N)*sizeof(int), cudaMemcpyHostToDevice);
+  cudaMemcpy(d_C, C, (N*N)*sizeof(int), cudaMemcpyHostToDevice);
 
 
      for(i=0;i<N;i++){
