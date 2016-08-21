@@ -51,6 +51,15 @@ int main()
  int (*d_A)[N], (*d_B)[N], (*d_C)[N];
 
 
+/* Device copies of A, B and C allovated space for device aopies of A, B and C. in lecture CUDA part 1 explanation have allocate memory on the device. */
+
+  cudaMalloc((void**)&d_A, (N*N)*sizeof(int));
+  cudaMalloc((void**)&d_B, (N*N)*sizeof(int));
+  cudaMalloc((void**)&d_C, (N*N)*sizeof(int));
+
+
+
+
      for(i=0;i<N;i++){
         for(j=0;j<N;j++){
             C[i][j] = A[i][j] + B[i][j];
