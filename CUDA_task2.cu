@@ -1,7 +1,15 @@
 // Name: H.G. Manesha Washani
 // Student Id: 1432289
 
+
 #include <stdio.h>
+
+/* this one of the header file. in this code need 
+dynamically allocated array function. library code can use
+malloc, free option */
+
+#include <stdlib.h>
+
 #define N 4
  
  
