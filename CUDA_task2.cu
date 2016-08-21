@@ -22,7 +22,6 @@ malloc, free option */
 
 int main()
 {
-   int i, j =0;
 
   int A[N][N] =
     {
@@ -48,7 +47,10 @@ int main()
       {0, 0, 0, 0}
    };
 
- 
+//device copies of A, B,C
+ int (*d_A)[N], (*d_B)[N], (*d_C)[N];
+
+
      for(i=0;i<N;i++){
         for(j=0;j<N;j++){
             C[i][j] = A[i][j] + B[i][j];
