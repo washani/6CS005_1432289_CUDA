@@ -33,7 +33,6 @@ int randmatfunc(){
         printf("\n");
     }
 }
-
 int main()
 {
 
