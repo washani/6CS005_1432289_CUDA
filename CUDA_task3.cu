@@ -22,7 +22,7 @@ malloc, free option */
 
 /* This is randam function of assessment gave*/
 
-int randmatfunc(){
+void randmatfunc(int newmat[N][N]){ //int change to void mode and added newmate parameter to the function
   int i, j, k; 
     for(i=0;i<N;i++){
         for(j=0;j<N;j++){
