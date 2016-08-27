@@ -33,32 +33,17 @@ void randmatfunc(int newmat[N][N]){ //int change to void mode and added newmate 
         printf("\n");
     }
 }
+/*Remove matrix numbers and, insert function to A and B matrix and create number automatically */
 int main()
 {
 
-  int A[N][N] =
-    {
-      {1, 5, 6, 7},
-      {4, 4, 8, 0},
-      {2, 3, 4, 5},
-      {2, 3, 4, 5}
-   };
+  int A[N][N];
+  randmatfunc(A);
 
-  int B[N][N] = 
-    {
-      {1, 5, 6, 7},
-      {4, 4, 8, 0},
-      {2, 3, 4, 5},
-      {2, 3, 4, 5}
-   };
+  int B[N][N];
+  randmatfunc(B);
 
-  int C[N][N] = 
-     {
-      {0, 0, 0, 0},
-      {0, 0, 0, 0},
-      {0, 0, 0, 0},
-      {0, 0, 0, 0}
-   };
+  int C[N][N];
 
 //device copies of A, B,C
  int (*d_A)[N], (*d_B)[N], (*d_C)[N];
