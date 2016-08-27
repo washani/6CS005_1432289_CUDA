@@ -10,7 +10,7 @@ malloc, free option */
 
 #include <stdlib.h>
 
-#define N 4
+#define N 20
  
 /* The __global__ indicates that this is an entry-point function running on the device. is called from host code  */
  __global__ void Matrixadd(int A[][N], int B[][N], int C[][N]){
@@ -32,6 +32,7 @@ void randmatfunc(int newmat[N][N]){ //int change to void mode and added newmate 
         }
         printf("\n");
     }
+printf("\n---------------------------------------------------\n");
 }
 /*Remove matrix numbers and, insert function to A and B matrix and create number automatically */
 int main()
