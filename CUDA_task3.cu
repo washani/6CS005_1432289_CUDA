@@ -20,6 +20,19 @@ malloc, free option */
            C[g][h] = A[g][h] + B[g][h];
 }
 
+/* This is randam function of assessment gave*/
+
+int randmatfunc(){
+  int i, j, k; 
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+          k = rand() % 100 + 1;;
+            printf("%d ", k);
+            newmat[i][j] =k;
+        }
+        printf("\n");
+    }
+}
 
 int main()
 {
